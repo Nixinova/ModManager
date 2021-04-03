@@ -1,0 +1,13 @@
+{
+    "version": {
+        "minecraft": "1.16"
+    },
+    "mods": {
+        "238222": {
+            "name": "Just Enough Items (JEI)",
+            "host": "curseforge",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/jei",
+            "version": "jei-1.16.4-7.6.0.56.jar"
+        }
+    }
+}

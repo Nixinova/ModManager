@@ -1,0 +1,33 @@
+{
+  "name": "modmanager",
+  "version": "1.0.0",
+  "description": "Keep your Minecraft Forge mods up to date.",
+  "main": "index.js",
+  "scripts": {
+  },
+  "files": [
+    "index.js"
+  ],
+  "bin": {
+    "modmanager": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nixinova/ModManager.git"
+  },
+  "keywords": [
+    "minecraft",
+    "minecraft-mods",
+    "minecraft-modding"
+  ],
+  "author": "Nixinova (https://nixinova.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nixinova/ModManager/issues"
+  },
+  "homepage": "https://github.com/Nixinova/ModManager#readme",
+  "dependencies": {
+    "download": "^8.0.0",
+    "mc-curseforge-api": "^2.2.3"
+  }
+}
