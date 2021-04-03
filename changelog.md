@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+*2021-04-04*
+- Added configuration file version.
+- Changed `remove` command to allow for specifying the host.
+- Fixed setup command not configuring the Minecraft version correctly.
+
 ## 1.0.1
 *2021-04-04*
 - Changed mod host to not be case sensitive.

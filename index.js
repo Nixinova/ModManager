@@ -4,7 +4,7 @@ const fs = require('fs');
 const download = require('download');
 const curseforge = require('mc-curseforge-api');
 
-const VERSION = '1.0.1';
+const VERSION = '1.0.2';
 const MODS_FILE = 'mods.json';
 
 function getConfig() { return JSON.parse(fs.readFileSync(MODS_FILE, { encoding: 'utf8' }, data => data)); }
@@ -31,7 +31,7 @@ function getValidVersions(versions, mcver) {
 }
 
 async function setup(mcver) {
-    const data = { versions: { minecraft: mcver }, mods: {} };
+    const data = { version: { config: 1, minecraft: mcver }, mods: {} };
     fs.writeFile(MODS_FILE, JSON.stringify(data, {}, 4), { encoding: 'utf8' }, data => data);
 }
 
@@ -53,7 +53,8 @@ async function install(srcArg, modID) {
     fs.writeFile(MODS_FILE, JSON.stringify(modsJson, {}, 4), { encoding: 'utf8' }, data => data);
 }
 
-async function remove(modID) {
+async function remove(a,b) {
+    const modID = b || a;
     const modsJson = getConfig();
     if (!modsJson.mods[modID]) return;
     fs.unlink('./' + modsJson.mods[modID].version, err => err && console.log(err))
@@ -86,7 +87,7 @@ if (args[0]) {
             Initialise a 'mods.json' listing file with a given Minecraft version.
         modmanager install curse <modID>
             Install a mod from CurgeForge, saving its metadata to 'mods.json'.
-        modmanager remove <modID>
+        modmanager remove [curse] <modID>
             Uninstall a mod and remove its metadata from 'mods.json'.
         modmanager update
             Update all mods specified in the 'mods.json' file.
