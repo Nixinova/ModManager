@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+*2021-04-04*
+- Changed mod host to not be case sensitive.
+- Fixed CLI usage not working.
+- Fixed `setup` command not working.
+
 ## 1.0.0
 *2021-04-04*
 - Added functions and CLI commands `setup`, `install`, `remove`, and `update`.

@@ -1,21 +1,23 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const download = require('download');
 const curseforge = require('mc-curseforge-api');
 
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 const MODS_FILE = 'mods.json';
 
 function getConfig() { return JSON.parse(fs.readFileSync(MODS_FILE, { encoding: 'utf8' }, data => data)); }
 function getUrlFileName(url) { return url.match(/[^/]+$/)?.[0]; }
 
-async function getMod(source, modID) {
-    switch (source) {
+async function getMod(host, modID) {
+    switch (host.toLowerCase()) {
         case 'curseforge': return await curseforge.getMod(+modID);
     }
 }
 
-async function getModFiles(source, modID) {
-    switch (source) {
+async function getModFiles(host, modID) {
+    switch (host.toLowerCase()) {
         case 'curseforge': return await curseforge.getModFiles(+modID);
     }
 }
@@ -91,7 +93,7 @@ if (args[0]) {
         modmanager version
             Display the current version of ModManager.
     `);
-    else if (args[0].includes('s')) init(args[1]).catch(e => console.error(e));
+    else if (args[0].includes('s')) setup(args[1]).catch(e => console.error(e));
     else if (args[0].includes('i')) install(args[1], args[2]).catch(e => console.error(e));
     else if (args[0].includes('r')) remove(args[1]).catch(e => console.error(e));
     else if (args[0].includes('u')) update().catch(e => console.error(e));

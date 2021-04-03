@@ -1,6 +1,6 @@
 [![Latest version](https://img.shields.io/github/v/release/Nixinova/ModManager?label=latest%20version&style=flat-square)](https://github.com/Nixinova/ModManager/releases)
 [![Last updated](https://img.shields.io/github/release-date/Nixinova/ModManager?label=updated&style=flat-square)](https://github.com/Nixinova/ModManager/releases)
-[![npm downloads](https://img.shields.io/npm/dt/modmanager?logo=npm)](https://www.npmjs.com/package/modmanager)
+[![npm downloads](https://img.shields.io/npm/dt/mcmodmanager?logo=npm)](https://www.npmjs.com/package/mcmodmanager)
 
 # ModManager
 
@@ -8,9 +8,9 @@ Keep your CurseForge Minecraft mods up to date with **ModManager**, the easy-to-
 
 ## Install
 
-ModManager is available [on npm](https://npmjs.com/package/modmanage):
+ModManager is available [on npm](https://npmjs.com/package/mcmodmanager):
 
-Install it globally using `npm install -g modmanager`.
+Install it globally using `npm install -g mcmodmanager`.
 
 ## Usage
 
@@ -74,4 +74,13 @@ modmanager remove 238222
 
 ### Node
 
-ModManager has Node exports of all above CLI commands.
+ModManager has Node exports of all above CLI commands:
+
+- `setup(mcVersion)`
+  - Initialise a directory with a `mods.json` file and configure it to use mods for a given Minecraft version (e.g., `1.16`).
+- `install(host, modID)`
+  - Install a mod from a given host (such as `curseforge`) from a given mod ID (e.g., `123456`).
+- `remove(modID)`
+  - Remove a mod given an existing mod ID (e.g., `123456`).
+- `update()`
+  - Install the latest version of all mods.

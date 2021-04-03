@@ -1,7 +1,7 @@
 {
-  "name": "modmanager",
-  "version": "1.0.0",
-  "description": "Keep your Minecraft Forge mods up to date.",
+  "name": "mcmodmanager",
+  "version": "1.0.1",
+  "description": "Keep your Minecraft Forge mods up to date using a simple CLI.",
   "main": "index.js",
   "scripts": {
   },
