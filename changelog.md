@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+*2021-04-06*
+- Fixed CLI commands being mapped to incorrect functions.
+
 ## 1.0.2
 *2021-04-04*
 - Added configuration file version.

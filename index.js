@@ -4,7 +4,7 @@ const fs = require('fs');
 const download = require('download');
 const curseforge = require('mc-curseforge-api');
 
-const VERSION = '1.0.2';
+const VERSION = '1.0.3';
 const MODS_FILE = 'mods.json';
 
 function getConfig() { return JSON.parse(fs.readFileSync(MODS_FILE, { encoding: 'utf8' }, data => data)); }
@@ -53,7 +53,7 @@ async function install(srcArg, modID) {
     fs.writeFile(MODS_FILE, JSON.stringify(modsJson, {}, 4), { encoding: 'utf8' }, data => data);
 }
 
-async function remove(a,b) {
+async function remove(a, b) {
     const modID = b || a;
     const modsJson = getConfig();
     if (!modsJson.mods[modID]) return;
@@ -74,17 +74,18 @@ async function update() {
     }
 }
 
-module.exports = { install, remove, update, setup };
+module.exports = { setup, install, remove, update };
 
 const args = process.argv.slice(2);
 if (args[0]) {
-    if (args[0].includes('h')) console.log(`
+    const cmd = args[0];
+    if (/^-*h/.test(cmd)) console.log(`
     ModManager commands:
 
         modmanager help
             Display this help message.
         modmanager setup <mcVersion>
-            Initialise a 'mods.json' listing file with a given Minecraft version.
+            Initialise a 'mods.json' configuration file with a given Minecraft version.
         modmanager install curse <modID>
             Install a mod from CurgeForge, saving its metadata to 'mods.json'.
         modmanager remove [curse] <modID>
@@ -94,9 +95,9 @@ if (args[0]) {
         modmanager version
             Display the current version of ModManager.
     `);
-    else if (args[0].includes('s')) setup(args[1]).catch(e => console.error(e));
-    else if (args[0].includes('i')) install(args[1], args[2]).catch(e => console.error(e));
-    else if (args[0].includes('r')) remove(args[1]).catch(e => console.error(e));
-    else if (args[0].includes('u')) update().catch(e => console.error(e));
-    else if (args[0].includes('v')) console.log(`The current version of ModManager is ${VERSION}`)
+    else if (/^-*s/.test(cmd)) setup(args[1]).catch(e => console.error(e));
+    else if (/^-*i/.test(cmd)) install(args[1], args[2]).catch(e => console.error(e));
+    else if (/^-*r/.test(cmd)) remove(args[1]).catch(e => console.error(e));
+    else if (/^-*u/.test(cmd)) update().catch(e => console.error(e));
+    else if (/^-*v/.test(cmd)) console.log(`The current version of ModManager is ${VERSION}`)
 }

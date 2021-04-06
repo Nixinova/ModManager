@@ -34,10 +34,10 @@ modmanager setup 1.16
 
 Now you can install whatever mods you want from CurseForge.
 To do so, simply go to the CurseForge page of your mod and copy its Project ID found on the right-hand side of the page.
-Then enter this project ID (`238222` in this example) into the `modcrafter install` command:
+Then enter this project ID (`238222` in this example) into the `modmanager install` command:
 
 ```cmd
-modcrafter install curse 238222
+modmanager install curse 238222
 ```
 
 This will install the version of mod `238222` that corresponds to your configured Minecraft version in `mods.json` (in this case, 1.16), given that there is a 1.16 version of the mod available.
